@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="icon" type="image/png" href="DOG.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* DEFAULTS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('Deutschlander.otf') format('opentype');
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #0f0f0f;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+
+
+
+    /* HEADER */
+
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 1.5rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    header nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 4rem;
+    }
+
+    header nav ul li {
+      position: relative;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: 'CustomFont', sans-serif;
+      padding: 0.5rem 0;
+      position: relative;
+      gap: 20px;
+      line-height: 1.2;
+      font-size: 30px;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #8b7d5e;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    header nav ul li a:hover {
+      color: #86785f;
+    }
+
+    header nav ul li a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+
+
+
+
+
+
+
+
+    /* IMAGES ANIMATION */
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      padding: 2rem;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    .hero-images {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-images .row {
+      overflow: hidden;
+      display: flex;
+      transform: rotate(10deg);
+    }
+
+    .hero-images .track {
+      display: flex;
+      gap: 15px;
+      animation: scroll-left linear infinite;
+    }
+
+    .hero-images img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      opacity: 0.9;
+    }
+
+    @keyframes scroll-left {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      max-width: 500px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-family: 'CustomFont', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      font-family: 'CustomFont', sans-serif;
+      color: #ddd;
+    }
+
+    .hero-images .row:nth-child(1) .track {
+      animation-duration: 25s;
+    }
+
+    .hero-images .row:nth-child(2) .track {
+      animation-duration: 35s;
+    }
+
+    .hero-images .row:nth-child(3) .track {
+      animation-duration: 30s;
+    }
+
+    .hero-images .row:nth-child(4) .track {
+      animation-duration: 40s;
+    }
+
+    .hero-images .row:nth-child(5) .track {
+      animation-duration: 28s;
+    }
+
+
+    /* ABOUT */
+    .about-section {
+      padding: 350px 20%;
+      padding-bottom: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffffff, #3a3733);
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .about-image .image-wrapper {
+      position: relative;
+      width: 480px;
+      height: 520px;
+      background: #fff;
+      border-radius: 30% 70% 70% 30% / 40% 40% 60% 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+
+    }
+
+    .about-text {
+      max-width: 500px;
+      color: #333;
+    }
+
+    .about-text h3 {
+      font-size: 50px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      line-height: 0.7;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about-text h3 span {
+      color: #ffffff;
+    }
+
+    .about-text p {
+      font-size: rem;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-weight: bold;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #000000;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+
+    .icon-link {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .section-heading3 {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      margin: 0;
+      font-size: 200px;
+      font-family: 'CustomFont', sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #000;
+      z-index: 10;
+    }
+
+
+    /* SECTION STYLING */
+    section {
+      padding: 5rem 2rem;
+      max-width: 2200px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: left;
+      margin-bottom: 1rem;
+      font-family: 'CustomFont', sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      font-size: 200px;
+      padding-left: 100px;
+      color: #ffffff;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* MY PROJECTS */
+    .projects {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 2rem;
+      padding: 5rem 2rem;
+      padding-bottom: 200px;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+
+
+    .projects-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1rem;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .nav-btn {
+      padding: 1rem;
+      background: transparent;
+      border: 2px solid #444;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .nav-btn.active,
+    .nav-btn:hover {
+      background: linear-gradient(45deg, #463d37, #c0b2b2);
+      border: none;
+      transform: scale(1.05);
+    }
+
+    .project-display {
+      flex: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-carousel {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .project-slide {
+      display: none;
+      animation: fadeInUp 0.8s ease forwards;
+      height: 100%;
+    }
+
+    .project-slide.active {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .project-slide img {
+      flex: 1;
+      height: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(136, 109, 109, 0.4);
+    }
+
+    .project-info {
+      flex: 1;
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .project-info h3 {
+      font-size: 2rem;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    .project-info p {
+      font-size: 1.1rem;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: #bbb;
+      margin-bottom: 1.5rem;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tools span {
+      border: 1px solid #555;
+      padding: 0.4rem 0.9rem;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      border-radius: 8px;
+      background: #222;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .tools span:hover {
+      background: #ff6a00;
+      color: #fff;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+
+
+
+
+
+    /* SKILLS & TOOLS */
+
+    .floating-boxes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 6rem 2rem;
+      padding-top: 400px;
+      padding-bottom: 200px;
+      background: #ffffff;
+    }
+
+    .box {
+      background: #000000;
+      border-radius: 30px;
+      padding: 4rem;
+      text-align: center;
+      width: 2500px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .box img {
+      width: 80px;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .box h3 {
+      font-size: 70px;
+      font-family: 'CustomFont', sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ffffff;
+
+    }
+
+    .box:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 30px rgba(199, 6, 6, 0.3);
+    }
+
+    .section-heading {
+      position: absolute;
+      top: 50px;
+      left: 100px;
+      margin: 0;
+      font-size: 200px;
+      font-family: 'CustomFont', sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #000;
+      z-index: 10;
+    }
+
+
+
+
+
+    /* EXPERIENCE */
+
+    .section-heading2 {
+      position: absolute;
+      top: 50px;
+      left: 0px;
+      margin: 0;
+      font-size: 200px;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #ffffff;
+      z-index: 10;
+    }
+
+    .image-text-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 2rem;
+      padding-top: 400px;
+      padding-bottom: 150px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title2 {
+      font-size: 60px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .text-content {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ffffff;
+    }
+
+    .text-with-icon {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding: 0 150px;
+    }
+
+    .text-with-icon .icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+    }
+
+    .text-with-icon p {
+      font-size: 15px;
+      font-family: 'Trebuchet MS', sans-serif;
+      margin: 0;
+      line-height: 1.5;
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+
+
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects1">Projects</a></li>
+        <li><a href="#skills-tools">Skills & Tools</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- IMAGE ANIMATION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-images">
+      <div class="row" data-speed="0.002">
+        <div class="track">
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+        </div>
+      </div>
+      <div class="row" data-speed="0.004">
+        <div class="track">
+          <img src="EXP2.jpg">
+          <img src="EXP4.jpg">
+          <img src="MOBILE.png">
+          <img src="AI.png">
+          <img src="LPU.png">
+
+          <img src="EXP2.jpg">
+          <img src="EXP4.jpg">
+          <img src="MOBILE.png">
+          <img src="AI.png">
+          <img src="LPU.png">
+
+          <img src="EXP2.jpg">
+          <img src="EXP4.jpg">
+          <img src="MOBILE.png">
+          <img src="AI.png">
+          <img src="LPU.png">
+        </div>
+      </div>
+      <div class="row" data-speed="0.006">
+        <div class="track">
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+        </div>
+      </div>
+      <div class="row" data-speed="0.008">
+        <div class="track">
+          <img src="EXP2.jpg">
+          <img src="EXP4.jpg">
+          <img src="MOBILE.png">
+          <img src="AI.png">
+          <img src="LPU.png">
+
+          <img src="EXP2.jpg  ">
+          <img src="EXP4.jpg">
+          <img src="MOBILE.png">
+          <img src="AI.png">
+          <img src="LPU.png">
+
+          <img src="EXP2.jpg">
+          <img src="EXP4.jpg">
+          <img src="MOBILE.png">
+          <img src="AI.png">
+          <img src="LPU.png">
+        </div>
+      </div>
+      <div class="row" data-speed="0.01">
+        <div class="track">
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+
+          <img src="SOFTENG.png">
+          <img src="MOBILE.png">
+          <img src="LPU.png">
+          <img src="EXP3.jpg">
+          <img src="EXP1.jpg">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="about-section">
+    <h2 class="section-heading3" id="about">ABOUT ME</h2>
+    <br>
+    <div class="about-container">
+      <div class="about-image">
+        <div class="image-wrapper">
+          <img src="PIC.png" alt="Your Name">
+        </div>
+      </div>
+      <div class="about-text">
+        <h3><span>KURT GRINIO</span></h3>
+        <p>
+          Motivated Computer Science fresh graduate with a strong foundation in Website Design, SQL, Database Management.
+          Skilled in Python for data processing and system integrationm, UI/UX, with hands-on experience in
+          managing datasets and software development. Eager to apply my knowledge to database management, web designing,
+          and backend-focused roles while growing in a professional setting.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/kurtanthonyy" target="_blank">
+            <img src="GITHUB2.png" alt="GitHub" class="icon-link">
+          </a>
+          <a href="https://www.linkedin.com/in/kurt-grinio-2a855a348" target="_blank">
+            <img src="LINKEDIN.png" alt="LinkedIn" class="icon-link">
+          </a>
+          <a href="mailto:kurtgrinio1@gmail.com">
+            <img src="GMAIL.png" alt="Email" class="icon-link">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MY PROJECTS -->
+  <h2 class="section-title" id="projects1">My Projects</h2>
+  <section id="projects" class="projects">
+    <nav class="projects-nav">
+      <button class="nav-btn active" data-category="web">Web Development</button>
+      <button class="nav-btn" data-category="data">Software Development</button>
+      <button class="nav-btn" data-category="ml">AI / Machine Learning</button>
+      <button class="nav-btn" data-category="design">Mobile Development</button>
+      <button class="nav-btn" data-category="portfolio">Portfolio</button>
+    </nav>
+
+    <div class="project-display">
+      <div class="project-carousel">
+        <div class="project-slide active" data-category="web">
+          <img src="LPU.png" alt="Project 1">
+          <div class="project-info">
+            <h3>LPU Esports Website</h3>
+            <p>This project showcases my Web Development and Design Skills through an interactive esports website for
+              LPU Esports organization with a gaming theme</p>
+            <p>Includes Events for Community engagement, Esports for tournaments and activities, Store for Merchandise,
+              and Team for staffs and organization</p>
+            <div class="tools">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              <span>Web Design</span><span>UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-slide" data-category="data">
+          <img src="SOFTENG.png" alt="Project 2">
+          <div class="project-info">
+            <h3>Sales and Inventory Management System</h3>
+            <p> Tasked for the computation logic of the sales, inputs of the vehicle information, backup and
+              restoration, and level of access for staffs.
+            <p>In participation with second hand car dealership as a client for providing solutions for their daily
+              problems and guide for enhancing the system.</p>
+            <div class="tools">
+              <span>Python</span><span>MySQL</span><span>Sales</span><span>Inventory</span>
+              <span>Database Management</span><span>Software Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-slide" data-category="ml">
+          <img src="AI.png" alt="Project 3">
+          <div class="project-info">
+            <h3>Lost and Found System</h3>
+            <p>Introduced the algorithms for integrating using BERT for contextual understanding and CNN for visual
+              matching.
+            <p>Responsible of gathering dataset for model training with data processing techniques, integration of the
+              model into the system.</p>
+            <div class="tools">
+              <span>CNN</span><span>BERT</span><span>TensorFlow</span><span>Python</span><span>Algorithm</span>
+              <span>MySQL</span><span>Computer Vision</span><span>NLP</span><span>AI/ML</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-slide" data-category="design">
+          <img src="MOBILE.png" alt="Project 4">
+          <div class="project-info">
+            <h3>Fitness App</h3>
+            <p>Customizable workout routines based on the fitness level, goals and preferences, Includes comprehensive
+              tracking of various fitness metrics, extensive library of workouts filtered by type and intensity.
+              Additional
+              Meal Planner in relation to healthy options of the users inclined with the corresponding works and its
+              intensities.</p>
+            <div class="tools">
+              <span>React</span><span>Node</span><span>Android Studio</span><span>UI/UX</span>
+              <span>Mobile Application</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-slide" data-category="portfolio">
+          <img src="PORTFOLIO.png" alt="Project 5">
+          <div class="project-info">
+            <h3>Portfolio</h3>
+            <p>Customized personal portfolio website showcasing my profile, projects, skills, and experience.</p>
+            <p>Showcasing new ideas and styling through a visually appealing design and minimalistic layout</p>
+            <div class="tools">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI/UX</span>
+              <span>Web Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SKILLS & TOOLS -->
+  <section class="floating-boxes">
+    <h4 class="section-heading" id="skills-tools">SKILLS & TOOLS</h4>
+
+    <div class="box">
+      <img src="HTML.png" alt="CSS Logo">
+      <img src="CSS.png" alt="CSS Logo">
+      <img src="JS.png" alt="JS Logo">
+      <img src="REACT.png" alt="React Logo">
+      <img src="MYSQL.png" alt="MySQL Logo">
+      <img src="PYTHON.png" alt="Python Logo">
+      <img src="NODE.png" alt="Node.js Logo">
+      <h3>PROGRAMMING</h3>
+    </div>
+    <div class="box">
+      <img src="DOCS.png" alt="Google Docs Logo">
+      <img src="SHEETS.png" alt="Google Sheets Logo">
+      <img src="SLIDES.png" alt="Google Slides Logo">
+      <img src="DRIVE.png" alt="Google Drive Logo">
+      <img src="GMAIL.png" alt="Gmail Logo">
+      <img src="WORD.png" alt="Microsoft Word Logo">
+      <img src="EXCEL.png" alt="Microsoft Excel Logo">
+      <h3>ORGANIZATION</h3>
+    </div>
+    <div class="box">
+      <img src="GITHUB.png" alt="GitHub Logo">
+      <img src="GIT.png" alt="Git Logo">
+      <img src="ANDROID.png" alt="Android Logo">
+      <img src="CANVA.png" alt="CANVA Logo">
+      <h3>OTHERS</h3>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="image-text-section">
+    <h2 class="section-heading2" id="experience">EXPERIENCE</h2>
+    <div class="image-grid">
+      <img src="EXP1.jpg" alt="Image 1">
+      <img src="EXP3.jpg" alt="Image 2">
+      <img src="EXP2.jpg" alt="Image 3">
+      <img src="EXP4.jpg" alt="Image 4">
+    </div>
+
+    <div class="text-content">
+      <h3 class="section-title2">TECH SUPPORT INTERN</h3>
+      <br>
+      <div class="text-with-icon">
+        <img src="ICON1.png" class="icon" alt="Icon1" width="50" height="50">
+        <div class="text">
+          <p>
+            Gained hands-on activities with the hospital information management system
+            (HIMS) and Enterprise Record Planning (ERP).
+          </p>
+        </div>
+      </div>
+      <div class="text-with-icon">
+        <img src="ICON2.png" class="icon" alt="Icon2" width="50" height="50">
+        <div class="text">
+          <p>
+            In-charge in Laboratory tasks for implementing their new HIMS such as
+            equipment troubleshooting, staff training of the system, client feedback.
+          </p>
+        </div>
+      </div>
+  </section>
+
+
+  <script>
+
+    function toggleDetails(projectElement) {
+      const details = projectElement.querySelector(".project-details");
+      details.style.display = details.style.display === "block" ? "none" : "block";
+    }
+
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          sec.classList.add("show");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+
+
+    document.querySelectorAll(".row").forEach((row, index) => {
+      const track = row.querySelector(".track");
+      const baseSpeed = row.dataset.speed ? parseFloat(row.dataset.speed) : 0.02;
+      const direction = index % 2 === 0 ? -1 : 1; 
+
+
+      const rowWidth = row.offsetWidth;
+      let totalWidth = Array.from(track.children).reduce((sum, img) => sum + img.offsetWidth + 15, 0);
+      while (totalWidth < rowWidth * 2) {
+        track.appendChild(track.children[0].cloneNode(true));
+        totalWidth = Array.from(track.children).reduce((sum, img) => sum + img.offsetWidth + 15, 0);
+      }
+
+      let scrollAmount = 0;
+
+      function animate() {
+        scrollAmount += direction * baseSpeed; 
+        if (Math.abs(scrollAmount) >= track.children[0].offsetWidth + 15) {
+          if (direction === -1) {
+            track.appendChild(track.children[0]);
+          } else {
+            track.insertBefore(track.lastElementChild, track.firstElementChild);
+          }
+          scrollAmount = 0;
+        }
+        track.style.transform = `translateX(${scrollAmount}px)`;
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    });
+
+
+
+
+
+    const navBtns = document.querySelectorAll(".nav-btn");
+    const slides = document.querySelectorAll(".project-slide");
+    let currentSlide = 0;
+
+    // Nav filtering only
+    navBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        navBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const category = btn.dataset.category;
+
+        slides.forEach((slide, i) => {
+          slide.classList.remove("active");
+          if (slide.dataset.category === category) {
+            slide.classList.add("active");
+            currentSlide = i;
+          }
+        });
+      });
+    });
+
+    document.addEventListener("scroll", () => {
+      let scrollY = window.scrollY;
+
+      document.querySelectorAll(".hero-images .row").forEach((row, index) => {
+        let speed = (index + 1) * 0.3; 
+        row.style.transform = `translateY(${scrollY * speed}px) rotate(10deg)`;
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
